@@ -14,9 +14,9 @@ def runGui():
 
 
 	def btnUseFcn():
-		frm_keypad.pack()
-		print("Clicked Use")
 		medList.pack_forget()
+		frm_keypad.pack_forget()
+
 	def btnListFcn():
 		lbxList.delete(0, tk.END)
 		thisrow = '{:15s}  {:12s}  {:15s}'.format('MEDICINE', 'QUANTITY', 'EXPIRATION')
@@ -26,9 +26,11 @@ def runGui():
 			thisrow = '{:15s}  {:12d}  {:15s}'.format(medicine.ljust(15)[:15], quantity, str(expiration))
 			lbxList.insert(tk.END, thisrow)
 
+		frm_keypad.pack_forget()
 		medList.pack()
 
 	def btnMaintainFcn():
+		frm_keypad.pack()
 		medList.pack_forget()
 
 	def incr_count(num, label):
@@ -46,9 +48,6 @@ def runGui():
 	    global count
 	    count = 0
 	    label.config(text = str(count))
-
-	# global variables
-	count = 0
 
 	ID = 1
 	global cnx
