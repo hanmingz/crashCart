@@ -121,6 +121,11 @@ def runGui():
 
 	btn_del = tk.Button(frm_keypad, text='Delete', width=10, command=delete_last)
 	btn_del.grid(row=4, column=0)
+
+	# create Entry
+	Label(frm_keypad, text="Medicine: ").grid(row=5, column=0)
+	e_bar = Entry(frm_keypad)
+	e_bar.grid(row=5, column=1, columnspan=2)
 	frm_keypad.pack_forget()
 
 	# List
