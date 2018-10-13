@@ -17,7 +17,7 @@ def runGui():
 		lbxList.insert(tk.END, thisrow)
 		getAllMedicine(cnx, cursor, ID)
 		for(medicine, quantity, expiration) in cursor:
-			thisrow = '{:15s}  {:12d}  {:15s}'.format(medicine, quantity, str(expiration))
+			thisrow = '{:15s}  {:12d}  {:15s}'.format(medicine.ljust(15)[:15], quantity, str(expiration))
 			lbxList.insert(tk.END, thisrow)
 
 		medList.pack()
