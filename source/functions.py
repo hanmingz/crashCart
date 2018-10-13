@@ -73,3 +73,10 @@ def disconnectSQL(cnx, cursor):
 	cursor.close()
 	cnx.close()
 	print("MySQL connection closed successfully")
+
+def findName(cnx, cursor, barcode):
+	query = ("SELECT name FROM pharmacy WHERE barcode = %s")
+	cursor.execute(query, (barcode))
+	for name in cursor:
+		ret = name
+	return ret
