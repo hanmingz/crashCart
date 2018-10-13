@@ -26,14 +26,14 @@ def connectSQL():
 	return (cnx, cursor)
 
 def initCart(cnx, cursor, cId):
-	cursor.execute(f"""CREATE TABLE IF NOT EXISTS cart{cId}(medicine VARCHAR(30) PRIMARY KEY, 
-	quantity INT, description VARCHAR(30), expiration DATE, FOREIGN KEY(description) 
+	cursor.execute(f"""CREATE TABLE IF NOT EXISTS cart{cId}(medicine VARCHAR(30) PRIMARY KEY,
+	quantity INT, description VARCHAR(30), expiration DATE, FOREIGN KEY(description)
 	REFERENCES pharmacy(name))""")
 	cnx.commit()
-	
+
 
 def cartStatus(cnx, cursor, cId, status, mac):
-	timestamp = datetime.datetime.now() 
+	timestamp = datetime.datetime.now()
 	timestamp.strftime('%Y-%m-%d %H:%M:%S')
 	try:
 		add_cart = (f"""INSERT INTO cartTable (cartId, cartStatus, macAddr, lastAccess)
@@ -58,7 +58,7 @@ def getMedicine(cnx, cursor, cId, med):
 
 def updateMedicine(cnx, cursor, med, quantity, exp, cId):
 	try:
-		add_medicine = (f"""INSERT INTO cart{cId} (medicine, quantity, description, expiration) 
+		add_medicine = (f"""INSERT INTO cart{cId} (medicine, quantity, description, expiration)
 			VALUES(%s, %s, %s, %s)""")
 		add_med = (med, quantity, med, exp)
 		cursor.execute(add_medicine, add_med)
@@ -73,4 +73,3 @@ def disconnectSQL(cnx, cursor):
 	cursor.close()
 	cnx.close()
 	print("MySQL connection closed successfully")
-
