@@ -4,6 +4,7 @@ from guiFunctions import *
 from gui import *
 
 def main():
+	count = 0
 	runGui()
 
 if(__name__ == "__main__"):
