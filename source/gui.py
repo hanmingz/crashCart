@@ -9,7 +9,9 @@ def main():
 	root = tk.Tk()
 	root.geometry("480x300")
 	root.title("Smart Crash Cart")
-	menuPack(root)
+
+	packMenu(root)
+
 	root.mainloop()
 
 if(__name__ == "__main__"):
