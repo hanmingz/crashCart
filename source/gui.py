@@ -10,8 +10,16 @@ def runGui():
 
 	def btnUseFcn():
 		medList.pack_forget()
+		txtUse.delete(1.0, tk.END)
+		msg = "msg"
+		txtUse.insert(tk.END, msg)
+		thisMac = getMac()
+		cartStatus(cnx, cursor, ID, 1, thisMac)
+		use.pack()
+
 
 	def btnListFcn():
+		use.pack_forget()
 		lbxList.delete(0, tk.END)
 		thisrow = '{:15s}  {:12s}  {:15s}'.format('MEDICINE', 'QUANTITY', 'EXPIRATION')
 		lbxList.insert(tk.END, thisrow)
@@ -24,6 +32,9 @@ def runGui():
 
 	def btnMaintainFcn():
 		medList.pack_forget()
+		use.pack_forget()
+		thisMac = getMac()
+		cartStatus(cnx, cursor, ID, 0, thisMac)
 
 	ID = 1
 	global cnx
@@ -49,6 +60,11 @@ def runGui():
 	medList = tk.Frame(root, width = 480, height = 260)
 	lbxList = tk.Listbox(medList, width = 480, height = 260, font = ("Courier", 12))
 	lbxList.pack()
+
+	#use
+	use = tk.Frame(root, width = 480, height = 260)
+	txtUse = tk.Text(use, width = 480, height = 260, font = ("Courier", 16))
+	txtUse.pack()
 
 	# running
 	menu.pack()

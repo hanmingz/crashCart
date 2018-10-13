@@ -6,7 +6,7 @@ import time
 import datetime
 import tkinter as tk
 
-def getMAC():
+def getMac():
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	s.connect(("8.8.8.8", 80))
 	ip_addr = s.getsockname()[0]
@@ -73,4 +73,3 @@ def disconnectSQL(cnx, cursor):
 	cursor.close()
 	cnx.close()
 	print("MySQL connection closed successfully")
-
