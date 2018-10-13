@@ -7,7 +7,7 @@ def packMenu(root):
 	btnUse.pack(side = tk.LEFT)
 	btnList = tk.Button(menu, text = 'LIST', width = 16, command = btnListFcn(root))
 	btnList.pack(side = tk.LEFT)
-	btnMaintain = tk.Button(menu, text = 'MAINTANANCE', width = 16, command = btnMaintainFcn(root))
+	btnMaintain = tk.Button(menu, text = 'MAINTENANCE', width = 16, command = btnMaintainFcn(root))
 	btnMaintain.pack(side = tk.LEFT)
 	menu.pack()
 
