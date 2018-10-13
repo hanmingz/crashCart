@@ -9,16 +9,27 @@ def runGui():
 
 
 	def btnUseFcn():
-		print("Clicked Use")
+		medList.pack_forget()
 
 	def btnListFcn():
-		print("Clicked List")
+		lbxList.delete(0, tk.END)
+		thisrow = '{:15s}  {:12s}  {:15s}'.format('MEDICINE', 'QUANTITY', 'EXPIRATION')
+		lbxList.insert(tk.END, thisrow)
+		getAllMedicine(cnx, cursor, ID)
+		for(medicine, quantity, expiration) in cursor:
+			thisrow = '{:15s}  {:12d}  {:15s}'.format(medicine, quantity, str(expiration))
+			lbxList.insert(tk.END, thisrow)
+
+		medList.pack()
 
 	def btnMaintainFcn():
-		print("Clicled Maintain")
+		medList.pack_forget()
 
 	ID = 1
+	global cnx
+	global cursor
 	(cnx, cursor) = connectSQL()
+	initCart(cnx, cursor, ID)
 
 	root = tk.Tk()
 	root.protocol("WM_DELETE_WINDOW", lambda: closeWindow(cnx, cursor))
@@ -36,7 +47,7 @@ def runGui():
 
 	# List
 	medList = tk.Frame(root, width = 480, height = 260)
-	lbxList = tk.Listbox(medList, width = 480, height = 260)
+	lbxList = tk.Listbox(medList, width = 480, height = 260, font = ("Courier", 12))
 	lbxList.pack()
 
 	# running
