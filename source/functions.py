@@ -4,6 +4,7 @@ from getmac import get_mac_address
 import mysql.connector
 import time
 import datetime
+import tkinter as tk
 
 def getMAC():
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -71,3 +72,5 @@ def updateMedicine(cnx, cursor, med, quantity, exp, cId):
 def disconnectSQL(cnx, cursor):
 	cursor.close()
 	cnx.close()
+	print("MySQL connection closed successfully")
+
