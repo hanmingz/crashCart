@@ -85,15 +85,15 @@ def runGui():
 
 	# GPIO from light sensor
 	GPIO.setmode(GPIO.BOARD)
-	GPIO.setup(7, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-	GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-	GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-	GPIO.add_event_detect(7, GPIO.BOTH)
-	GPIO.add_event_callback(7, display_ls1)
-	GPIO.add_event_detect(11, GPIO.BOTH)
-	GPIO.add_event_callback(11, display_ls2)
-	GPIO.add_event_detect(13, GPIO.BOTH)
-	GPIO.add_event_callback(13, display_ls3)
+	GPIO.setup(36, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+	GPIO.setup(38, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+	GPIO.setup(40, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+	GPIO.add_event_detect(36, GPIO.BOTH)
+	GPIO.add_event_callback(36, display_ls1)
+	GPIO.add_event_detect(38, GPIO.BOTH)
+	GPIO.add_event_callback(38, display_ls2)
+	GPIO.add_event_detect(40, GPIO.BOTH)
+	GPIO.add_event_callback(40, display_ls3)
 
 	# GUI
 	ID = 1
