@@ -15,13 +15,14 @@ def runGui():
 
 	def btnUseFcn():
 		medList.pack_forget()
+		frm_keypad.pack_forget()
+		use.pack_forget()
 		txtUse.delete(1.0, tk.END)
 		global msg
 		txtUse.insert(tk.END, msg)
 		thisMac = getMac()
 		cartStatus(cnx, cursor, ID, 1, thisMac)
 		use.pack()
-		frm_keypad.pack_forget()
 
 	def btnListFcn():
 		use.pack_forget()
