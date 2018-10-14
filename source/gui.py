@@ -1,9 +1,11 @@
 import tkinter as tk
+import RPi.GPIO as GPIO
 from functions import *
 from guiFunctions import *
 
 # Global variables
 count = 0
+msg = "msg"
 
 def runGui():
 
@@ -12,11 +14,10 @@ def runGui():
 		disconnectSQL(cnx, cursor)
 		root.destroy()
 
-
 	def btnUseFcn():
 		medList.pack_forget()
 		txtUse.delete(1.0, tk.END)
-		msg = "msg"
+		global msg
 		txtUse.insert(tk.END, msg)
 		thisMac = getMac()
 		cartStatus(cnx, cursor, ID, 1, thisMac)
@@ -58,7 +59,33 @@ def runGui():
 	    global count
 	    count = 0
 	    label.config(text = str(count))
+	    print(e_bar.get())
 
+	def display_ls1():
+		global msg
+		msg = "Medication 1"
+
+	def display_ls2():
+		global msg
+		msg = "Medication 2"
+
+	def display_ls3():
+		global msg
+		msg = "Medication 3"
+
+	# GPIO from light sensor
+	GPIO.setmode(GPIO.BOARD)
+	GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+	GPIO.setup(12, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+	GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+	GPIO.add_event_detect(11, GPIO.BOTH)
+	GPIO.add_event_callback(11, display_ls1)
+	GPIO.add_event_detect(12, GPIO.BOTH)
+	GPIO.add_event_callback(12, display_ls2)
+	GPIO.add_event_detect(13, GPIO.BOTH)
+	GPIO.add_event_callback(13, display_ls3)
+
+	# GUI
 	ID = 1
 	global cnx
 	global cursor
@@ -123,8 +150,8 @@ def runGui():
 	btn_del.grid(row=4, column=0)
 
 	# create Entry
-	Label(frm_keypad, text="Medicine: ").grid(row=5, column=0)
-	e_bar = Entry(frm_keypad)
+	tk.Label(frm_keypad, text="Medicine: ").grid(row=5, column=0)
+	e_bar = tk.Entry(frm_keypad)
 	e_bar.grid(row=5, column=1, columnspan=2)
 	frm_keypad.pack_forget()
 

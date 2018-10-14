@@ -1,10 +1,10 @@
 import tkinter as tk
+import RPi.GPIO as GPIO
 from functions import *
 from guiFunctions import *
 from gui import *
 
 def main():
-	count = 0
 	runGui()
 
 if(__name__ == "__main__"):
