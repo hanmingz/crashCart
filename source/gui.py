@@ -71,15 +71,15 @@ def runGui():
 		except:
 			pass
 
-	def display_ls1():
+	def display_ls1(channel):
 		global msg
 		msg = "Roxithromycin"
 
-	def display_ls2():
+	def display_ls2(channel):
 		global msg
 		msg = "Band Aid"
 
-	def display_ls3():
+	def display_ls3(channel):
 		global msg
 		msg = "Medication 3"
 
@@ -88,11 +88,11 @@ def runGui():
 	GPIO.setup(36, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 	GPIO.setup(38, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 	GPIO.setup(40, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-	GPIO.add_event_detect(36, GPIO.BOTH)
+	GPIO.add_event_detect(36, GPIO.RISING)
 	GPIO.add_event_callback(36, display_ls1)
-	GPIO.add_event_detect(38, GPIO.BOTH)
+	GPIO.add_event_detect(38, GPIO.RISING)
 	GPIO.add_event_callback(38, display_ls2)
-	GPIO.add_event_detect(40, GPIO.BOTH)
+	GPIO.add_event_detect(40, GPIO.RISING)
 	GPIO.add_event_callback(40, display_ls3)
 
 	# GUI
