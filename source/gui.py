@@ -73,16 +73,34 @@ def runGui():
 			pass
 
 	def display_ls1(channel):
+		medList.pack_forget()
+		frm_keypad.pack_forget()
+		use.pack_forget()
+		txtUse.delete(1.0, tk.END)
 		global msg
 		msg = "Roxithromycin"
+		txtUse.insert(tk.END, msg)
+		use.pack()
 
 	def display_ls2(channel):
+		medList.pack_forget()
+		frm_keypad.pack_forget()
+		use.pack_forget()
+		txtUse.delete(1.0, tk.END)
 		global msg
 		msg = "Band Aid"
+		txtUse.insert(tk.END, msg)
+		use.pack()
 
 	def display_ls3(channel):
+		medList.pack_forget()
+		frm_keypad.pack_forget()
+		use.pack_forget()
+		txtUse.delete(1.0, tk.END)
 		global msg
 		msg = "Roxithromycin"
+		txtUse.insert(tk.END, msg)
+		use.pack()
 
 	# GUI
 	ID = 1
