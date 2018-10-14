@@ -4,7 +4,7 @@ from functions import *
 
 # Global variables
 count = 0
-msg = "msg"
+msg = "No Medication Taken"
 
 def runGui():
 
@@ -82,7 +82,7 @@ def runGui():
 
 	def display_ls3(channel):
 		global msg
-		msg = "Medication 3"
+		msg = "Roxithromycin"
 
 	# GUI
 	ID = 1
