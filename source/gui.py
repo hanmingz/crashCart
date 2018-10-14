@@ -73,11 +73,11 @@ def runGui():
 
 	def display_ls1():
 		global msg
-		msg = "Medication 1"
+		msg = "Roxithromycin"
 
 	def display_ls2():
 		global msg
-		msg = "Medication 2"
+		msg = "Band Aid"
 
 	def display_ls3():
 		global msg
