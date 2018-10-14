@@ -164,7 +164,7 @@ def runGui():
 
 	#use
 	use = tk.Frame(root, width = 480, height = 260)
-	txtUse = tk.Text(use, width = 480, height = 260, font = ("Courier", 16))
+	txtUse = tk.Text(use, width = 480, height = 260, font = ("Courier", 36))
 	txtUse.pack()
 
 	# GPIO from light sensor
