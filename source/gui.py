@@ -83,18 +83,6 @@ def runGui():
 		global msg
 		msg = "Medication 3"
 
-	# GPIO from light sensor
-	GPIO.setmode(GPIO.BOARD)
-	GPIO.setup(36, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-	GPIO.setup(38, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-	GPIO.setup(40, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-	GPIO.add_event_detect(36, GPIO.RISING)
-	GPIO.add_event_callback(36, display_ls1)
-	GPIO.add_event_detect(38, GPIO.RISING)
-	GPIO.add_event_callback(38, display_ls2)
-	GPIO.add_event_detect(40, GPIO.RISING)
-	GPIO.add_event_callback(40, display_ls3)
-
 	# GUI
 	ID = 1
 	global cnx
@@ -178,6 +166,17 @@ def runGui():
 	txtUse = tk.Text(use, width = 480, height = 260, font = ("Courier", 16))
 	txtUse.pack()
 
+	# GPIO from light sensor
+	GPIO.setmode(GPIO.BOARD)
+	GPIO.setup(36, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+	GPIO.setup(38, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+	GPIO.setup(40, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+	GPIO.add_event_detect(36, GPIO.RISING)
+	GPIO.add_event_callback(36, display_ls1)
+	GPIO.add_event_detect(38, GPIO.RISING)
+	GPIO.add_event_callback(38, display_ls2)
+	GPIO.add_event_detect(40, GPIO.RISING)
+	GPIO.add_event_callback(40, display_ls3)
 	# running
 	menu.pack()
 	root.mainloop()
