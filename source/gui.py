@@ -1,7 +1,6 @@
 import tkinter as tk
 import RPi.GPIO as GPIO
 from functions import *
-from guiFunctions import *
 
 # Global variables
 count = 0
@@ -55,11 +54,22 @@ def runGui():
 	    label.config(text = str(count))
 
 	def return_count():
-	    # TODO: return input
 	    global count
-	    count = 0
-	    label.config(text = str(count))
-	    print(e_bar.get())
+		barcode = e_bar.get()
+		name = findName(cnx, cursor, barcode)
+		updateMedicine(cnx, cursor, name, count, "2018-12-12", ID)
+		e_bar.delete(0, tk.END)
+		txtMedicine.delete(1.0, tk.END)
+		count = 0
+		label.config(text = str(count))
+
+	def barcodeEnter(event):
+		try:
+			name = findName(cnx, cursor, e_bar.get())
+			txtMedicine.delete(1.0, tk.END)
+			txtMedicine.insert(tk.END, name)
+		except:
+			pass
 
 	def display_ls1():
 		global msg
@@ -96,6 +106,7 @@ def runGui():
 	root.protocol("WM_DELETE_WINDOW", lambda: closeWindow(cnx, cursor))
 	root.geometry("480x300")
 	root.title("Smart Crash Cart")
+	root.bind('<Return>', barcodeEnter)
 
 	# Menu bar
 	menu = tk.Frame(root, width = 480, height = 60)
@@ -153,6 +164,8 @@ def runGui():
 	tk.Label(frm_keypad, text="Medicine: ").grid(row=5, column=0)
 	e_bar = tk.Entry(frm_keypad)
 	e_bar.grid(row=5, column=1, columnspan=2)
+	txtMedicine = tk.Text(frm_keypad, width = 20, height = 1)
+	txtMedicine.grid(row=6, column = 1, columnspan = 2)
 	frm_keypad.pack_forget()
 
 	# List

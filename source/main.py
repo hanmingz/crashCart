@@ -1,7 +1,6 @@
 import tkinter as tk
 import RPi.GPIO as GPIO
 from functions import *
-from guiFunctions import *
 from gui import *
 
 def main():

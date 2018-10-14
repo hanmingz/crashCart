@@ -35,9 +35,7 @@ def packKeypad(root, frm_keypad):
 
 	def return_count():
 	    # TODO: return input
-	    global count
-	    count = 0
-	    label.config(text = str(count))
+	    pass
 
 	# create label
 	label = tk.Label(frm_keypad, fg="green")
