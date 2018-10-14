@@ -55,7 +55,7 @@ def runGui():
 
 	def return_count():
 	    global count
-		barcode = e_bar.get()
+	    barcode = e_bar.get()
 		name = findName(cnx, cursor, barcode)
 		updateMedicine(cnx, cursor, name, count, "2018-12-12", ID)
 		e_bar.delete(0, tk.END)
