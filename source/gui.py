@@ -72,15 +72,15 @@ def runGui():
 		except:
 			pass
 
-	def display_ls1():
+	def display_ls1(channel):
 		global msg
 		msg = "Roxithromycin"
 
-	def display_ls2():
+	def display_ls2(channel):
 		global msg
 		msg = "Band Aid"
 
-	def display_ls3():
+	def display_ls3(channel):
 		global msg
 		msg = "Medication 3"
 
